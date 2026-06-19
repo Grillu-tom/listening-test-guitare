@@ -136,30 +136,38 @@ async function startTest() {
 }
 
 function buildTrial() {
+
   document.getElementById("trialCounter").innerText =
   `Trial ${currentTrial + 1}/${trials.length}`;
-  
-  const intruder = trials[currentTrial];
+
+  const trial = trials[currentTrial];
+
+  const referenceFile = trial.reference;
+  const intruder = trial.intruder;
+
+  document.querySelector(
+  "#referenceAudio source"
+).src = referenceFile;
+
+document.getElementById("referenceAudio").load();
 
   const matchIsA = Math.random() < 0.5;
 
   comparisonFiles = [
+  {
+    visibleLabel: "A",
+    hiddenIdentity: matchIsA ? "MATCH" : "DIFFERENT",
+    file: matchIsA ? referenceFile : intruder,
+    isCorrect: matchIsA
+  },
 
-    {
-      visibleLabel: "A",
-      hiddenIdentity: matchIsA ? "MATCH" : "DIFFERENT",
-      file: matchIsA ? "reference.wav" : intruder,
-      isCorrect: matchIsA
-    },
-
-    {
-      visibleLabel: "B",
-      hiddenIdentity: matchIsA ? "DIFFERENT" : "MATCH",
-      file: matchIsA ? intruder : "reference.wav",
-      isCorrect: !matchIsA
-    }
-
-  ];
+  {
+    visibleLabel: "B",
+    hiddenIdentity: matchIsA ? "DIFFERENT" : "MATCH",
+    file: matchIsA ? intruder : referenceFile,
+    isCorrect: !matchIsA
+  }
+];
 
   const container =
     document.getElementById("comparisonContainer");
@@ -437,7 +445,9 @@ async function submitTest() {
 
   trial: currentTrial + 1,
 
-  intruder: trials[currentTrial],
+  reference: referenceFile,
+
+  intruder: intruder,
 
   selected: selected,
 
@@ -450,7 +460,6 @@ async function submitTest() {
       .join(",")
 
 });
-
 currentTrial++;
 
 if (currentTrial < trials.length) {
@@ -486,6 +495,11 @@ const responses = {};
     answer: result.intruder,
     chiave: `trial${trialNum}`
   };
+
+  responses[`TRIAL${trialNum}_REFERENCE`] = {
+  answer: result.reference,
+  chiave: `trial${trialNum}`
+};
 
 });
 
