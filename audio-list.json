@@ -1,13 +1,14 @@
 [
-    "musicien/audio_f-lim_1600_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_4000_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_2000_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_2800_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_20000_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_3200_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_3000_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_3800_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_3400_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_6000_Hz_rayleigh_musician.wav",
-    "musicien/audio_f-lim_8000_Hz_rayleigh_musician.wav"
+  {
+    "reference": "ref1.wav",
+    "intruder": "intruder1.wav"
+  },
+  {
+    "reference": "ref2.wav",
+    "intruder": "intruder2.wav"
+  },
+  {
+    "reference": "ref3.wav",
+    "intruder": "intruder3.wav"
+  }
 ]
