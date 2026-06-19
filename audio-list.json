@@ -1,14 +1,10 @@
 [
   {
-    "reference": "ref1.wav",
-    "intruder": "intruder1.wav"
+    "reference": "reference/audio_f-lim_1800_Hz_rayleigh_musician.wav",
+    "intruder": "intruder/audio_f-lim_3000_Hz_rayleigh_musician.wav"
   },
   {
-    "reference": "ref2.wav",
-    "intruder": "intruder2.wav"
-  },
-  {
-    "reference": "ref3.wav",
-    "intruder": "intruder3.wav"
+    "reference": "reference/audio_f-lim_20000_Hz_rayleigh_spectateur.wav",
+    "intruder": "intruder/audio_f-lim_4000_Hz_rayleigh_musician.wav"
   }
 ]
